@@ -1,5 +1,5 @@
 public class Map {
-    char[][] map;
+    private char[][] map;
 
     public Map(char[][] m) {
         map = m;
