@@ -9,6 +9,10 @@ public class Map {
         return map;
     }
 
+    public char getTile(int i, int j) {
+        return map[i][j];
+    }
+
     public void setTile(int i, int j, char newTile) {
         map[i][j] = newTile;
     }
