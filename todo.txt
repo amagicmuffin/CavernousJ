@@ -1,0 +1,31 @@
+Class Player() {}
+
+
+Class Map()
+
+
+def move(direction):
+  Map.setTile(Player.coords, ground)
+  Player.setCoords(newPlace)
+  Map.setTile(Player.coords, Player)
+  Player.facing = direction
+  Map.render()
+
+
+def processInput(userInput):
+  if userInput == moveCommand:
+    move(moveCommand)
+    
+  if userInput == inspect:
+    Player.inspect()
+
+
+def main():
+  // set start variables
+  // start map, etc
+  // (may want to put this in a different class, too? static things? idk
+  
+  Map.render()
+  while gaming:
+    processInput(input())
+    
