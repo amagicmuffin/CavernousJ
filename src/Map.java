@@ -5,6 +5,7 @@ public class Map {
         map = m;
     }
 
+    /* simple getters and setters */
     public char[][] getMap() {
         return map;
     }
@@ -17,6 +18,14 @@ public class Map {
         map[i][j] = newTile;
     }
 
+    /* moving tiles */
+    public void Move(int i1, int j1, int i2, int j2) {
+        final char FLOOR_TILE = '.'; // TODO: should this be somewhere else?
+        setTile(i2, j2, getTile(i1,j1));
+        setTile(i1, j1, FLOOR_TILE);
+    }
+
+    /* rendering map */
     public void render() {
         System.out.println(this);
     }

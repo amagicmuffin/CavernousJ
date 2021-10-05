@@ -21,45 +21,51 @@ public class Player {
         return jPos;
     }
 
-    public void Move(String direction) {
+    public void setiPos(int iPos) {
+        this.iPos = iPos;
+    }
+
+    public void setjPos(int jPos) {
+        this.jPos = jPos;
+    }
+
+    public void TryMove(String direction, Map map) {
+        // TODO: don't let Player move into walls lmao
         switch (direction) {
             case "a":
-                MoveLeft();
+                MoveLeft(map);
                 break;
             case "d":
-                MoveRight();
+                MoveRight(map);
                 break;
-            case "s":
-                MoveDown();
-                break;
-            case "w":
-                MoveUp();
-                break;
+//            case "s":
+//                MoveDown();
+//                break;
+//            case "w":
+//                MoveUp();
+//                break;
             default:
                 throw new Error("Invalid movement command");
         }
     }
 
-//            Map.setTile(Player.coords, ground)
-//            Player.setCoords(newPlace)
-//            Map.setTile(Player.coords, Player)
-//            Player.facing = direction
-//            Map.render()
-
-    private void MoveLeft() {
+    private void MoveLeft(Map map) {
+        map.Move(iPos, jPos, iPos, jPos-1);
         jPos--;
     }
-    
-    private void MoveRight() {
+
+    private void MoveRight(Map map) {
+        map.Move(iPos, jPos, iPos, jPos+1);
         jPos++;
     }
-    
-    private void MoveDown() {
+
+    private void MoveDown(Map map) {
+        map.Move(iPos, jPos, iPos+1, jPos);
         iPos++;
     }
-    
-    private void MoveUp() {
+
+    private void MoveUp(Map map) {
+        map.Move(iPos, jPos, iPos-1, jPos);
         iPos--;
     }
-    
 }

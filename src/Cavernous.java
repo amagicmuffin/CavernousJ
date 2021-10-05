@@ -8,13 +8,14 @@ public class Cavernous {
 
         Map screen1 = new Map(screen1map);
 
-        Player player1 = new Player('@', 1,0);
-
-        player1.Move("d");
+        Player player1 = new Player('@', 1,1);
 
         screen1.render();
         screen1.setTile(player1.getiPos(), player1.getjPos(), player1.getPlayer());
-        System.out.println(player1.getiPos() + " " + player1.getjPos());
+        screen1.render();
+        player1.TryMove("d", screen1);
+        screen1.render();
+        player1.TryMove("d", screen1);
         screen1.render();
     }
 }

@@ -1,3 +1,5 @@
+// map should handle all movement, not the entity classes
+
 Class Player() {}
 
 
