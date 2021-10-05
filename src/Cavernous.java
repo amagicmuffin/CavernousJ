@@ -8,6 +8,8 @@ public class Cavernous {
 
         Map screen1 = new Map(screen1map);
 
-        screen1.printMap();
+        System.out.println(screen1);
+        screen1.setTile(1,0,'@');
+        System.out.println(screen1);
     }
 }
