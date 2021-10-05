@@ -17,6 +17,10 @@ public class Map {
         map[i][j] = newTile;
     }
 
+    public void render() {
+        System.out.println(this);
+    }
+
     public String toString() {
         String output = "";
 
