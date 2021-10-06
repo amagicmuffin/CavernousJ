@@ -38,12 +38,12 @@ public class Player {
             case "d":
                 MoveRight(map);
                 break;
-//            case "s":
-//                MoveDown();
-//                break;
-//            case "w":
-//                MoveUp();
-//                break;
+            case "s":
+                MoveDown(map);
+                break;
+            case "w":
+                MoveUp(map);
+                break;
             default:
                 throw new Error("Invalid movement command");
         }

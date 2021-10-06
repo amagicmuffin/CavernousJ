@@ -19,3 +19,5 @@ public class Cavernous {
         screen1.render();
     }
 }
+
+// TODO: get started on main game loop, Scanner input
