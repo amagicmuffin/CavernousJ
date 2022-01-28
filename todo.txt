@@ -1,33 +1,98 @@
-// map should handle all movement, not the entity classes
+escape room game. mechanics similar to those old flash games like riddle school
 
-Class Player() {}
+https://stackoverflow.com/questions/34828142/cmd-console-game-reduction-of-blinking
+https://medium.com/backwoods/flaws-of-an-undead-genre-whats-wrong-with-point-click-adventures-b3cb93a4c364
 
+ ____________________________
+|map             | inventory |
+|                |           |
+|----------------------------|
+|text                        |
+ ----------------------------
 
-Class Map()
-
-
-def move(direction):
-  Map.setTile(Player.coords, ground)
-  Player.setCoords(newPlace)
-  Map.setTile(Player.coords, Player)
-  Player.facing = direction
-  Map.render()
-
-
-def processInput(userInput):
-  if userInput == moveCommand:
-    move(moveCommand)
+TODO {
+    what will the game need to function? {
+        userinput 
+        queue text
+            ArrayList textQueue;
+            // 
+            def render():
+                for i in textQueue:
+                    printNextInQueue();
+            def printNextInQueue():
+                print
+                    
+        movement
+            4 directions.
+            collision detection
+        interaction
+            store last faced // low prio notification; add to print q but have other 
+                                notifications remove it. eg, if you bump into a wall,
+                                printqueue "you bumped into $something", not facing
+            recognize if tile at coords is an entity
+            if entity, run func tied to that entity (see entities)
+        entities
+            funcs tied to entities that can:
+            move player (pathway)
+            manipulate inventory
+            manipulate entities
+                eg unlock door (change from locked door to open door)
+                eg pick up item (removes item, replaces it with floor tile)
+            
+        
+    }
     
-  if userInput == inspect:
-    Player.inspect()
-
-
-def main():
-  // set start variables
-  // start map, etc
-  // (may want to put this in a different class, too? static things? idk
-  
-  Map.render()
-  while gaming:
-    processInput(input())
+    update()
+    render()
+    def update():
+        get userinput
+        process userinput
+        run game by one game tick
+        figure out what to print in render
+    def render():
+        print what we need
     
+    
+    how can we load the map?
+    method 1 {
+        all the maps stored as arrays
+        variable keeping track of what the values inside arrays
+        kept separately
+        pseduocode {
+            map[][] = // implementation
+            update() {
+                if 
+            }
+        }
+    }
+    method 2 {
+        basic map outline stored
+        variable keepign track of entities loads entities onto screen on update() before render()
+    }
+}
+
+notes:
+entities can use keys
+
+
+eg door w/o key cannot open. door w/ key can open.
+{
+    // TODO: where would this go?
+    // pseudocode
+    interact(coords);
+
+    def interact(coords):
+        switch coords:
+            case coords == coordsOfDoor1:
+                tryOpenDoor1();
+            case coords == coordsOfDoor2:
+                tryOpenDoor2();
+            finally: return false;
+
+    def tryOpenDoor1():
+        if(haveKey):
+            openDoor();
+        else:
+            printToGame("you dont have key");
+
+}
